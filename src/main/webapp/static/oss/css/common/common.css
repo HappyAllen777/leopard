@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+* {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB",
+		"Microsoft YaHei", Arial, sans-serif; margin: 0; padding: 0;
+}
+
+/** 取消a链接的下划线 */
+a {
+	text-decoration: none;
+}
+/** 取消访问过的a链接的样式 */
+a:visited {
+	text-decoration: none;
+}
+
+input {
+	outline: none;
+}
+
+/** 取消input数字输入框的箭头 */
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+/** 取消input数字输入框的箭头 */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/** 默认阴影 */
+.def-shadow {
+	box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+/** 空行样式 */
+.blank-line-10 {
+	height: 10px;
+}
+
+.blank-line-15 {
+	height: 15px;
+}
+
+.blank-line-20 {
+	height: 20px;
+}

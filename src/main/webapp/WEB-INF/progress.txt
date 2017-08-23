@@ -1,0 +1,110 @@
+StandardServer.init(){
+	foreach(StandardServer.services){
+		service[StandardServer].initialize(){
+			// init excutors
+			// add itself(this) into StandardServer
+			foreach(Connectors){
+				connector[Connector].initialize(){
+					// Connector.protocolHandler.adapter = new CoyoteAdapter()
+					protocolHandler[Http11Protocol].init(){
+						// Http11Protocol.endpoint[JIoEndpoint].handler = new Http11ConnectionHandler()
+						// create socketFactory
+						// set socketFactory to endpoint[JIoEndpoint]
+						endpoint[JIoEndpoint].init(){
+							// JIoEndpoint.serverSocket(java.net.ServerSoclet) = socketFactory.createServerSocketByPort
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+StandardServer.start(){
+	// notify before start event to listeners
+	// notify start event to listeners
+	foreach(StandardServer.services){
+		service[StandardServer].start(){
+			// notify before start event to listeners
+			// notify start event to listeners
+			container.start(){
+			}
+			foreach(executors){
+				executor.start(){
+				}
+			}
+			foreach(connectors){
+				connector.start(){
+					// notify start event to listeners
+					MapperLister.init(){
+						//注册host和context到Mapper中
+					}
+					protocolHandler[Http11Protocol].start(){
+						endpoint[JIoEndpoint].start(){
+							// init WorkerStack
+							foreach(acceptorThreadCount){
+								new Thread(new Acceptor()).start(){
+									JIoEndpoint.Acceptor.run(){
+										// socket = serverSocketFactory.accept(JIoEndpoint.serverSocket)
+										getWorker.assign(socket){
+											// notifyAll()
+											JIoEndpoint.Worker.run(){
+												handler.process(socket){
+													// create processor[Http11Processor] and set its adapter
+													processor.process(socket){
+														processor.adapter[CoyoteAdapter].service(request,response){
+															StandardContextValve.invoke(request,response){
+																MessageBytes requestPathMB = request.getRequestPathMB();
+																// if requestPathMB.startWith("/WEB-INF") or startWith("/META-INF"), response.sendError(404)
+																
+																Wrapper wrapper = request.getWrapper();// Wrapper对象含有Engine，Host，Context，Wrapper[SpringMVC]信息
+																StandardWrapperValve.invoke(request,response){
+																
+																	StandardWrapper wrapper = (StandardWrapper) getContainer();
+																	
+																	// 指派一个servlet来处理请求，此处servlet为SpringMVC的DispatcherServlet。tomcat启动时会为每一个定义在web.xml中的servlet都创建Wrapper对象，不管是不是loadonstartup
+																	Servlet servlet = wrapper[StandardWrapper].allocate();
+																	
+																	// 把所有的Filter赋值到了ApplicationFilterChain的filters数组中
+																	ApplicationFilterChain filterChain = factory.createFilterChain(request, wrapper, servlet);
+																	
+																	filterChain[ApplicationFilterChain].doFitler(request,response){
+																		// 到这里web.xml中定义的Filter就开始被按顺序调用了
+																	}
+																	
+																	// 到这里请求已经抵达SpringMVC了
+																	servlet[SpringMVC].service(request,response);
+																	
+																	// 清空ApplicationFilterChain的filters
+																	filterChain.release();
+
+																	// 把servlet push到instancePool中
+																	wrapper[StandardWrapper].deallocate(servlet);
+																	
+																	StandardHostValve.invoke(request,response){
+																		status(request,response){
+																			// if reponse.isError,getErrorPageByResponseErrorCode and flush reponse ErrorPage
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+										
+									}
+								}
+							}
+						}
+					}
+					mapperListener.init(){
+					}
+				}
+			}
+			// notify after_start to listeners
+		}
+	}	
+	// notify after_start event to listeners
+}

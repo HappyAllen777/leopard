@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+.TOOL-BAR {
+	position: absolute;
+	bottom: 0px;
+	height: 45px;
+	width: 500px;
+	z-index: 100;
+}
+
+.ADD-TITLE,.ADD-PARAGRAPH,.ADD-PICTURE {
+	background-color: rgb(65, 65, 65);
+	color: rgb(255, 255, 255);
+	width: 100px;
+}
+
+.ADD-TITLE:hover,.ADD-PARAGRAPH:hover,.ADD-PICTURE:hover {
+	background-color: rgb(160, 160, 160);
+}
+
+.TITLE-EDIT-AREA {
+	max-width: 500px;
+	width:90%;
+}
+
+.PARAGRAPH-EDIT-AREA {
+	max-width: 500px;
+	width:90%;
+}
+
+.CONFIRM-ADD {
+	background-color: rgb(65, 65, 65);
+	color: rgb(255, 255, 255);
+	width: 150px;
+}
+.CANCEL-ADD {
+	background-color: rgb(150, 150, 150);
+	color: rgb(255, 255, 255);
+	width: 150px;
+}

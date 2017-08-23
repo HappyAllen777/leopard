@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+html,body {
+	height: auto; min-height: 100%;
+}
+
+/** 文章框体 */
+.article-box {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB",
+		"Microsoft YaHei", Arial, sans-serif; width: 800px;
+	min-width: 800px; margin: 0 auto; color: rgb(62, 62, 62);
+	box-shadow: 8px 3px 15px rgba(0, 0, 0, 0.3); min-height: 100%;
+}
+
+/** 当浏览器宽度小于800px时，触发以下样式 */
+@media screen and (max-width: 720px) {
+	.article-box  {
+		max-width: 100%;
+		min-width:100%;
+	}
+}
+
+/** 文章标题1样式 */
+.title-box-1{
+	padding-top:10px;padding-botton:10px;
+}
+
+.title-content-1{
+	text-align: center;font-weight: 400;font-size: 30px
+}
+
+/** 段落标题1样式 */
+.paragraph-title-box-1 {
+	padding-left: 20px; padding-right: 20px; line-height: 30px;
+	min-height: 30px;
+}
+
+.paragraph-title-content-1 {
+	font-size: 15px; font-weight: bold;
+}
+
+/** 段落框样式 */
+.paragraph-box {
+	padding-left: 20px; padding-right: 20px; padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.ti2 {
+	text-indent: 2em;
+}
+
+/** 段落内容样式 */
+.paragraph-pre {
+	font-size: 15px; line-height: 28px; white-space: pre-wrap; margin: 0;
+}
+
+/** 图片框 */
+.picture-box {
+	padding-left: 20px; padding-right: 20px;
+}
+
+.picture-box img {
+	max-width: 100%; display: block; margin: 0 auto;
+}
+
+.picture-box p {
+	font-size: 0.9em; line-height: 25px; margin: 0; text-align: center;
+}

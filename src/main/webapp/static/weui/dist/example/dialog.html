@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dialog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="/leopard/static/oss/css/common/common.css"/>
+<link rel="stylesheet" href="/leopard/static/oss/css/dialog/dialog.css"/>
+<script type="text/javascript" src="/leopard/static/oss/js/form/form-check.js"></script>
+<script type="text/javascript" src="/leopard/static/oss/js/form/form-util.js"></script>
+<link rel="stylesheet" type="text/css" href="/leopard/static/oss/css/article/form.css">
+</head>
+<body>
+	<div class="container" id="container">
+		<div>
+			<a href="javascript:;" onclick="showInfo()">showInfo</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/leopard/static/oss/js/jquery/jquery-2.1.4.min.js"></script>
+<div id="info" style="display: none;">
+	<div class="dialog-mask"></div>
+	<div class="dialog">
+		<div class="dialog-head"><span style="font-size: 1.2em;font-weight: 400">添加段落标题</span></div>
+		<div id="info_msg" class="dialog-body" style="padding-bottom:1.3em">
+			<input class="dialog-input"/>
+		</div>
+		<div class="dialog-foot">
+			<a href="javascript:;" class="dialog-btn" onclick="closeInfo()">确认添加</a>
+			<a href="javascript:;" class="dialog-btn close" onclick="closeInfo()">取消</a>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	function showInfo(info) {
+		if(!isBlank(info)){
+			$("#info_msg").html(info);
+		}
+		$("#info").fadeIn(300);
+	}
+
+	function closeInfo() {
+		$("#info").hide(300);
+	}
+</script>
+</html>

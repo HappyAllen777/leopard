@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>测试weui</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+<link rel="stylesheet" type="text/css" href="../style/weui.css">
+
+</head>
+
+<body>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+	<div class="container" id="container">
+		<a href="javascript:;" onclick="showDialog1()">dialog1</a>
+		<a href="javascript:;" onclick="showDialog2()">dialog2</a>
+	</div>
+</body>
+<script type="text/javascript" src="/leopard/static/oss/js/jquery/jquery-2.1.4.min.js"></script>
+<script type="text/html" id="dialogTemplate">
+</script>
+<div class="js_dialog" id="dialog1" style="display: none;">
+	<div class="weui-mask"></div>
+	<div class="weui-dialog">
+		<div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+		<div class="weui-dialog__ft">
+			<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" onclick="closeDialog('dialog1')">知道了</a>
+		</div>
+	</div>
+</div>
+
+<div class="js_dialog" id="dialog2" style="display: none;">
+	<div class="weui-mask"></div>
+	<div class="weui-dialog weui-skin_android">
+		<div class="weui-dialog__hd">
+			<strong class="weui-dialog__title">弹窗标题</strong>
+		</div>
+		<div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+		<div class="weui-dialog__ft">
+			<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">辅助操作</a>
+			<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">主操作</a>
+		</div>
+	</div>
+</div>
+
+<script>
+function showDialog1() {
+	$("#dialog1").fadeIn(200);
+}
+	function showDialog2() {
+		$("#dialog2").fadeIn(200);
+	}
+	
+	function closeDialog(dialogId){
+		$("#"+dialogId).hide();
+	}
+</script>
+</html>
