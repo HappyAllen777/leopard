@@ -1,13 +1,13 @@
-#maven#
+# maven #
 target
 
-#ide#
+# ide #
 .settings
 .project
 .classpath
 
-#java packages#
+# java packages #
 *.jar
 
-#editplus bak#
+# editplus bak #
 *.bak
