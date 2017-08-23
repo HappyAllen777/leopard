@@ -1,4 +1,13 @@
-/.externalToolBuiders/
-/.myeclipse/
-/.settings/
-/target/
+#maven#
+target
+
+#ide#
+.settings
+.project
+.classpath
+
+#java packages#
+*.jar
+
+#editplus bak#
+*.bak
